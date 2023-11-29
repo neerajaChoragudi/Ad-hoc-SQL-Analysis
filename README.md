@@ -1,4 +1,4 @@
-###  Ad-hoc SQL Analysis
+# Ad-hoc SQL Analysis
 
 
 ###### Challenge : Provide Insights to Management in Consumer Goods Domain
