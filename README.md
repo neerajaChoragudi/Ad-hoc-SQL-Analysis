@@ -27,6 +27,7 @@ Imagine yourself as the applicant for this role and perform the following task
 
 <img width="747" alt="MYSQLresult-1" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/79abb1e0-d900-4c5e-b5c0-f12104195459">
 
+
 ###  2. What is the percentage of unique product increase in 2021 vs. 2020? The final output contains these fields, unique_products_2020 unique_products_2021      percentage_chg  
 
      select count(distinct case when fiscal_year = 2020 then product_code end) 
