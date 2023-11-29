@@ -26,6 +26,7 @@ Imagine yourself as the applicant for this role and perform the following task
       where customer ="Atliq Exclusive" and region = "APAC";
 
 <img width="747" alt="MYSQLresult-1" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/79abb1e0-d900-4c5e-b5c0-f12104195459">
+
 ###  2. What is the percentage of unique product increase in 2021 vs. 2020? The final output contains these fields, unique_products_2020 unique_products_2021      percentage_chg  
 
      select count(distinct case when fiscal_year = 2020 then product_code end) 
@@ -42,6 +43,8 @@ Imagine yourself as the applicant for this role and perform the following task
      select segment,count(distinct product_code) as product_count from dim_product
      group by segment
      order by product_count desc;
+
+<img width="753" alt="MYSQLresult-3" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/0472c644-f2b7-40f7-9034-141ea2e8cd9b">
  
 ###  4. Follow-up: Which segment had the most increase in unique products in 2021 vs 2020? The final output contains these fields, segment, product_count_2020, product_count_2021 ,difference
  
@@ -59,6 +62,8 @@ Imagine yourself as the applicant for this role and perform the following task
         order by pct_difference desc
         limit 1;
 
+<img width="754" alt="MYSQLresult-4" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/4ee043b9-df04-4f6b-8083-2091d9428129">
+
 ###  5. Get the products that have the highest and lowest manufacturing costs. The final output should contain these fields product_code, product ,manufacturing_cost*/ 
 
       select m.product_code,p.product,m.manufacturing_cost
@@ -70,7 +75,7 @@ Imagine yourself as the applicant for this role and perform the following task
       manufacturing_cost= (select min(manufacturing_cost) from fact_manufacturing_cost)
       order by manufacturing_cost desc;
 
- 
+ <img width="742" alt="MYSQLresult-5" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/125f6904-0804-486b-aecc-82dea25b057a">
 
 
 ### 6. Generate a report which contains the top 5 customers who received an average high pre_invoice_discount_pct for the fiscal year 2021 and in the Indian market. The final output contains these fields,customer_code,customer ,average_discount_percentage (Let us consider it is asking the value  greater than the average value of pre_invoice_discount_pct) 
@@ -84,6 +89,8 @@ Imagine yourself as the applicant for this role and perform the following task
       group by c.customer,pre.customer_code
       order by highest_avg_pre_deduction_pct desc
       limit 5;
+
+<img width="734" alt="MYSQLresult-6" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/c4cf2dcd-8b88-4d5e-8c3e-67364dcc8dad">
 
 
 ###  7. Get the complete report of the Gross sales amount for the customer “Atliq Exclusive” for each month .This analysis helps to get an idea of low and high-performing months and take strategic decisions.The final report contains these columns: Month ,Year ,Gross sales Amount
@@ -101,6 +108,8 @@ Imagine yourself as the applicant for this role and perform the following task
         select * from AtliqGrossSales 
         where customer = "Atliq Exclusive";
 
+ <img width="731" alt="MYSQLresult-7" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/004e84a1-6b82-4d7b-8d00-c9e612ebd942">
+
 ###  8. In which quarter of 2020, got the maximum total_sold_quantity? The final output contains these fields sorted by the total_sold_quantity,Quarter ,total_sold_quantity 
 
         select 
@@ -115,6 +124,9 @@ Imagine yourself as the applicant for this role and perform the following task
       where fiscal_year = 2020
       group by  fiscal_quarter
       order by fiscal_quarter,total_sold_quantity desc ;
+
+<img width="738" alt="MYSQLresult-8" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/1efa93e9-3d30-4ada-9479-5b0a332456c7">
+
  
  ###  9. Which channel helped to bring more gross sales in the fiscal year 2021 and the percentage of contribution? The final output contains these fields channel ,gross_sales_mln ,percentage
  
@@ -131,6 +143,8 @@ Imagine yourself as the applicant for this role and perform the following task
      select *,
      round(gross_sales_mln*100/sum(gross_sales_mln) over(),2) as percentage_contribution
      from cte9;
+
+ <img width="739" alt="MYSQLresult-9" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/953679b1-050a-4885-93b4-7530cd7ab202">
  
  
  ###  10. Get the Top 3 products in each division that have a high total_sold_quantity in the fiscal_year 2021? The final output contains these fields, division, product_code product, total_sold_quantity ,rank_order*/
@@ -145,5 +159,7 @@ Imagine yourself as the applicant for this role and perform the following task
     from cte10)
         select * from cte11 
         where rnk <4;
+
+<img width="723" alt="MYSQLresult-10" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/39b8db20-c7c9-45fc-8890-9e2ed12560a8">
   
   # Ad-hoc-SQL-Analysis
