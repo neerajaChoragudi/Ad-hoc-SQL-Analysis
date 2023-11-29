@@ -25,6 +25,7 @@ Imagine yourself as the applicant for this role and perform the following task
       select  distinct market,customer,region from dim_customer
       where customer ="Atliq Exclusive" and region = "APAC";
 
+<img width="747" alt="MYSQLresult-1" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/79abb1e0-d900-4c5e-b5c0-f12104195459">
 ###  2. What is the percentage of unique product increase in 2021 vs. 2020? The final output contains these fields, unique_products_2020 unique_products_2021      percentage_chg  
 
      select count(distinct case when fiscal_year = 2020 then product_code end) 
@@ -33,6 +34,7 @@ Imagine yourself as the applicant for this role and perform the following task
      /COUNT(DISTINCT CASE WHEN fiscal_year = 2020 THEN product_code END)) * 100 as percentage_change
      from fact_sales_monthly  where fiscal_year in (2020,2021);
 
+<img width="745" alt="MYSQLresult-2" src="https://github.com/neerajaChoragudi/Ad-hoc-SQL-Analysis/assets/141207588/dc30d3ad-115d-4a0f-842e-e023e93229f5">
 
 
 ###  3. Provide a report with all the unique product counts for each segment and sort them in descending order of product counts. The final output contains 2 fields, segment product_count  
